@@ -48,15 +48,79 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Align(
-                      alignment: Alignment.topRight,
-                      child: SvgPicture.asset("assets/icons/menu.svg"),
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: SvgPicture.asset("assets/icons/menu.svg"),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Expanded(
+                    child: Stack(
+                      children: <Widget>[
+                        SvgPicture.asset(
+                          "assets/icons/Drcorona.svg",
+                          width: 230,
+                          fit: BoxFit.fitWidth,
+                          alignment: Alignment.topCenter,
+                        ),
+                        Positioned(
+                          top: 20,
+                          left: 150,
+                          child: Text(
+                            "All you neeed \nis stay at home",
+                            style: kHeadingTextStyle.copyWith(
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                        Container(),
+                      ],
                     ),
-                  ]),
+                  )
+                ],
+              ),
             ),
-          )
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: 20),
+            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+            height: 60,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(25),
+              border: Border.all(
+                color: Color(0xffe5e5e5),
+              ),
+            ),
+            child: Row(
+              children: <Widget>[
+                SvgPicture.asset("assets/icons/maps-and-flags.svg"),
+                SizedBox(
+                  width: 20,
+                ),
+                Expanded(
+                  child: DropdownButton(
+                    isExpanded: true,
+                    underline: SizedBox(),
+                    icon: SvgPicture.asset("assets/icons/dropdown.svg"),
+                    value: "India",
+                    items: ["India", "United States", "China"]
+                        .map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList(),
+                    onChanged: (value) {},
+                  ),
+                )
+              ],
+            ),
+          ),
         ],
       ),
     );
