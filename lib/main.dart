@@ -128,72 +128,112 @@ class HomeScreen extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Column(children: <Widget>[
-              Row(
-                children: <Widget>[
-                  RichText(
-                    text: TextSpan(
-                      children: [
-                        TextSpan(
-                          text: "Case Update\n",
-                          style: kTitleTextstyle,
-                        ),
-                        TextSpan(
-                          text: "Newest update April 25",
-                          style: TextStyle(
-                            color: kTextLightColor,
+            child: Column(
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: "Case Update\n",
+                            style: kTitleTextstyle,
                           ),
-                        ),
-                      ],
+                          TextSpan(
+                            text: "Newest update April 25",
+                            style: TextStyle(
+                              color: kTextLightColor,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  Spacer(),
-                  Text(
-                    "See details",
-                    style: TextStyle(
-                      color: kPrimaryColor,
-                      fontWeight: FontWeight.w600,
+                    Spacer(),
+                    Text(
+                      "See details",
+                      style: TextStyle(
+                        color: kPrimaryColor,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Container(
-                padding: EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                        offset: Offset(0, 4),
-                        blurRadius: 30,
-                        color: kShadowColor),
                   ],
                 ),
-                child: Row(
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  padding: EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                          offset: Offset(0, 4),
+                          blurRadius: 30,
+                          color: kShadowColor),
+                    ],
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Counter(
+                        color: kInfectedColor,
+                        number: 22456,
+                        title: "Infected",
+                      ),
+                      Counter(
+                        color: kDeathColor,
+                        number: 86,
+                        title: "Deaths",
+                      ),
+                      Counter(
+                        color: kRecovercolor,
+                        number: 26,
+                        title: "Recovered",
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 20),
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Counter(
-                      color: kInfectedColor,
-                      number: 22456,
-                      title: "Infected",
+                    Text(
+                      "Spread of Virus",
+                      style: kTitleTextstyle,
                     ),
-                    Counter(
-                      color: kDeathColor,
-                      number: 86,
-                      title: "Deaths",
-                    ),
-                    Counter(
-                      color: kRecovercolor,
-                      number: 26,
-                      title: "Recovered",
+                    Text(
+                      "See details",
+                      style: TextStyle(
+                        color: kPrimaryColor,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ],
                 ),
-              )
-            ]),
+                Container(
+                  margin: EdgeInsets.only(top: 20),
+                  padding: EdgeInsets.all(5),
+                  height: 100,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        offset: Offset(0, 10),
+                        blurRadius: 30,
+                        color: kShadowColor,
+                      )
+                    ],
+                  ),
+                  child: Image.asset(
+                    "assets/images/map.png",
+                    fit: BoxFit.contain,
+                  ),
+                )
+              ],
+            ),
           )
         ],
       ),
